@@ -9,8 +9,12 @@ const Index = () => {
       <section className="container mx-auto px-4 py-16 animate-fade-in">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8 inline-block">
-            <div className="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-purple-300 to-pink-300 flex items-center justify-center shadow-lg">
-              <Icon name="User" size={80} className="text-white" />
+            <div className="w-40 h-40 mx-auto rounded-full overflow-hidden shadow-2xl ring-4 ring-purple-200">
+              <img 
+                src="https://cdn.poehali.dev/files/vb3wnQW_rEvtC6mwh0hd36PB6MxcO7PSFk7LU5Mj1eo6pzv75YLUzVfHMFfNwA5pKlU7BJTUo5yYIV3OJ0OK9RVV.jpg" 
+                alt="Колбина Елизавета Константиновна" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
           <h1 className="text-5xl font-bold text-gray-800 mb-4">
