@@ -1,8 +1,29 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Index = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Сообщение отправлено!",
+      description: "Елизавета Константиновна свяжется с вами в ближайшее время.",
+    });
+    setFormData({ name: "", email: "", message: "" });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
       {/* Hero Section */}
@@ -196,6 +217,101 @@ const Index = () => {
                     <Icon name="Sparkles" size={24} className="text-pink-500" />
                     <span>Творческий подход</span>
                   </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="container mx-auto px-4 py-12 pb-20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center gap-3">
+            <Icon name="Mail" size={40} className="text-blue-500" />
+            Контакты
+          </h2>
+          <Card className="bg-white/80 backdrop-blur-sm shadow-xl border-blue-200 animate-scale-in">
+            <CardContent className="p-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-6">Свяжитесь со мной</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
+                          <Icon name="School" size={24} className="text-white" />
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-1">Образовательная деятельность</h4>
+                        <p className="text-gray-600">Преподавание в начальных классах</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-orange-400 flex items-center justify-center">
+                          <Icon name="Palette" size={24} className="text-white" />
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-1">Кружок "Яркие кисточки"</h4>
+                        <p className="text-gray-600">Развитие творческих навыков</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 flex items-center justify-center">
+                          <Icon name="MessageCircle" size={24} className="text-white" />
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-1">Консультации</h4>
+                        <p className="text-gray-600">По вопросам обучения и развития</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <Input
+                        type="text"
+                        placeholder="Ваше имя"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                        className="bg-white border-purple-200 focus:border-purple-400"
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        type="email"
+                        placeholder="Ваш email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        required
+                        className="bg-white border-purple-200 focus:border-purple-400"
+                      />
+                    </div>
+                    <div>
+                      <Textarea
+                        placeholder="Ваше сообщение"
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        required
+                        rows={5}
+                        className="bg-white border-purple-200 focus:border-purple-400 resize-none"
+                      />
+                    </div>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-6"
+                    >
+                      <Icon name="Send" size={20} className="mr-2" />
+                      Отправить сообщение
+                    </Button>
+                  </form>
                 </div>
               </div>
             </CardContent>
