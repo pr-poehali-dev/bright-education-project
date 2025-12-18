@@ -218,6 +218,35 @@ const Index = () => {
                     <span>Творческий подход</span>
                   </div>
                 </div>
+                
+                <div className="mt-12">
+                  <h4 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                    Работы наших учеников
+                  </h4>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:scale-105 animate-scale-in">
+                      <img 
+                        src="https://cdn.poehali.dev/files/рисунки детей.jpg" 
+                        alt="Ученики с рисунками пингвинов" 
+                        className="w-full h-64 object-cover"
+                      />
+                    </div>
+                    <div className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:scale-105 animate-scale-in">
+                      <img 
+                        src="https://cdn.poehali.dev/files/рисунок детей2.jpg" 
+                        alt="Творческие работы учеников" 
+                        className="w-full h-64 object-cover"
+                      />
+                    </div>
+                    <div className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:scale-105 animate-scale-in">
+                      <img 
+                        src="https://cdn.poehali.dev/files/рисунок детей.jpg" 
+                        alt="Яркий закат - работа ученика" 
+                        className="w-full h-64 object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
